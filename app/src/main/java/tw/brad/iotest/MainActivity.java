@@ -101,9 +101,52 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void test5(View v){
-
+        File file1 = new File(app1root, "file1.txt");
+        try {
+            FileOutputStream fout = new FileOutputStream(file1);
+            fout.write("test5".getBytes());
+            fout.flush();
+            fout.close();
+        }catch(Exception ee){
+            Log.d("brad", ee.toString());
+        }
     }
     public void test6(View v){
+        File file1 = new File(app2root, "file1.txt");
+        try {
+            FileOutputStream fout = new FileOutputStream(file1);
+            fout.write("test6".getBytes());
+            fout.flush();
+            fout.close();
+        }catch(Exception ee){
+            Log.d("brad", ee.toString());
+        }
+    }
+    public void test7(View v){
+        info.setText("");
+        File file1 = new File(app1root, "file1.txt");
+        try {
+            FileInputStream fin = new FileInputStream(file1);
+            int c;
+            while ((c= fin.read()) != -1){
+                info.append("" + (char)c);
+            }
+        }catch(Exception ee){
+
+        }
+    }
+    public void test8(View v){
+        info.setText("");
+        File file1 = new File(app2root, "file1.txt");
+        try {
+            FileInputStream fin = new FileInputStream(file1);
+            int c;
+            while ((c= fin.read()) != -1){
+                info.append("" + (char)c);
+            }
+        }catch(Exception ee){
+
+        }
     }
     /* Checks if external storage is available for read and write */
     public static boolean isExternalStorageWritable() {
